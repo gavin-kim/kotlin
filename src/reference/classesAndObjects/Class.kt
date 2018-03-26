@@ -1,7 +1,7 @@
 package reference.classesAndObjects
 
 /** Constructors */
-class PrimaryConstructor(name: String) {
+class PrimaryConstructor(name: String) { // name exists only during initializing
 
     val firstProperty: String = "firstProperty"
 
@@ -21,7 +21,6 @@ class PrimaryConstructor(name: String) {
     }
 
 }
-
 
 /** Constructor with annotation and visibility modifier */
 class Customer @Inject public constructor(name: String) {
@@ -161,7 +160,6 @@ class C : A(), B {
         super<B>.f()
     }
 }
-
 
 fun main(args: Array<String>) {
     Child("Gavin", "Kim")

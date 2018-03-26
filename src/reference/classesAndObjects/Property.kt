@@ -82,6 +82,8 @@ class Test {
 fun elvisOverator(list: List<String>?) {
     val value: Int = if (list != null) list.size else -1
     val elvis: Int = list?.size ?: -1
+
+
     val npe: Int = list!!.size // throw NullPointException if list is null
 }
 
@@ -95,3 +97,4 @@ fun main(args: Array<String>) {
     counter = -5
     println(counter)
 }
+

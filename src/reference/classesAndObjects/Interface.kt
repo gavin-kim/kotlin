@@ -1,13 +1,21 @@
 package reference.classesAndObjects
 
 interface AAA {
-    fun foo() { println("A") }
+    fun foo() {
+        println("A")
+    }
+
     fun bar()
 }
 
 interface BBB {
-    fun foo() { println("B") }
-    fun bar() { println("bar") }
+    fun foo() {
+        println("B")
+    }
+
+    fun bar() {
+        println("bar")
+    }
 }
 
 class CCC : AAA {

@@ -19,7 +19,7 @@ open class CanHaveSubClass(open val number: Int) : Expr()
 object NotANumber : Expr()
 
 
-/** A Subclass of a subclasse of sealed class can be placed any other files */
+/** A Subclass of a subclasse of sealed class can be placed any others files */
 class SubClass(override val number: Int) : CanHaveSubClass(number)
 
 fun main(args: Array<String>) {

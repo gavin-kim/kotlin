@@ -1,20 +1,18 @@
 package reference.classesAndObjects
 
-import java.util.*
-
 /**
  * Declaration-site variance
  *
  * variance annotation (in, out)
- * in: makes a type parameter covariant (Producer)
- * out: makes a type parameter contravariant (Consumer)
+ * in: makes a type parameter contravariant (Consumer)
+ * out: makes a type parameter covariant (Producer)
  *
  * */
 interface Source<out T> { // <? extends T>
     fun nextT(): T // only used for output
 }
 
-fun covarianceDemo(source: Source<Type>) { // Source<? extends Type>: covariant type
+fun covarianceDemo(source: Source<Type>) { // Source<out T> == Source<? extends Type>: covariant type
 
     val type: Type = source.nextT()
     val superType: SuperType = source.nextT() // Can produce supertypes of Type
@@ -25,7 +23,7 @@ interface Comparable2<in T> { // <? super T>
     operator fun compareTo(other: T): Int // only used for input
 }
 
-fun contravarianceDemo(comparable: Comparable2<Type>) { // Comparable2<? super Type>: contravariant type
+fun contravarianceDemo(comparable: Comparable2<Type>) { // Comparable<in Type> ==  Comparable2<? super Type>: contravariant type
 
     comparable.compareTo(Type())
     comparable.compareTo(SubType()) // Can consume subtypes of Type

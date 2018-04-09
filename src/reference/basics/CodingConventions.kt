@@ -31,7 +31,7 @@ class ClassLayoutExample(val name: String, var age: Int) {
          * Put related functions together,
          * so that someone reading the class from top to bottom would be able to follow the logic
          *
-         * Put overload functions next to each other
+         * Put overload functions next to each others
          *
          * Keep the implementing members in the same order as members of the interface
          */

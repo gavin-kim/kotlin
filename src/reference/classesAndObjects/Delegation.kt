@@ -57,7 +57,11 @@ fun main(args: Array<String>) {
 }
 
 fun validateBeforeInsertMR(rotation: Rotation): SaveResultDTO {
-    val validators = listOf(jobValidator, typeValidator, nameValidator)
+    val validators = listOf(
+        jobValidator,
+        typeValidator,
+        nameValidator
+    )
     return invokeValidators(rotation, validators)
 }
 

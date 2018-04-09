@@ -6,7 +6,7 @@ import java.util.function.Consumer
  * ----------------------------------------------------------------------------------
  * | Class A declared within another class B       | In Java         | In Kotlin
  * ----------------------------------------------------------------------------------
- * | Nested class (No reference to an outer class) | static class A  | class A
+ * | Nested class (No kotlin to an outer class) | static class A  | class A
  * | Inner class  (Reference to an outer class)    | class A         | inner class A
  * ----------------------------------------------------------------------------------
  */

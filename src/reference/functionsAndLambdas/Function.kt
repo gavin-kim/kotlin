@@ -11,13 +11,13 @@ fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) {
 /**
  * Overridden function can not have default value for parameters
  */
-open class B : A() {
+open class BB : AA() {
     override fun foo(i: Int) {
 
     }
 }
 
-open class A {
+open class AA {
     open fun foo(i: Int = 10) {
 
     }

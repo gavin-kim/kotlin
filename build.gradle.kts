@@ -10,7 +10,7 @@ plugins {
     // Apply the java-library plugin to add support for Java Library
     `build-scan`
     `java-library`
-    kotlin("jvm") version "1.3.11"
+    kotlin("jvm") version "1.3.21"
 }
 
 dependencies {
@@ -19,6 +19,7 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation(kotlin("stdlib"))
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1")
     implementation("com.google.guava:guava:23.0")
 
     // Use JUnit test framework

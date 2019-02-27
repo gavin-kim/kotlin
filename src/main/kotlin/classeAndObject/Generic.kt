@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/main/kotlin/classeAndObject/Generic.kt
 package classeAndObject
+=======
+package reference.classesAndObjects
+>>>>>>> 112bf9c2012b885e01992096b18996833743d2e7:src/reference/classesAndObjects/Generic.kt
 
 /**
  * Declaration-site variance

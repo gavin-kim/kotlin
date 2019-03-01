@@ -11,8 +11,8 @@ object TimePeriodHelper {
         timePeriod: TimePeriod,
         format: String = DEFAULT_TIME_PERIOD_FORMAT
     ): String {
-        val regex = Regex(DATE_PATTERN)
-        val matchResults = regex.findAll(format)
+        val datePattern = Regex(DATE_PATTERN)
+        val matchResults = datePattern.findAll(format)
 
         check(matchResults.count() >= 2) { "Invalid TimePeriod String format: $format"}
 
@@ -20,7 +20,7 @@ object TimePeriodHelper {
         val endDateFormat = SimpleDateFormat(matchResults.elementAt(1).value.removeSurrounding("{", "}"))
 
         return format
-            .replaceFirst(regex, startDateFormat.format(timePeriod.startDate))
-            .replaceFirst(regex, endDateFormat.format((timePeriod.endDate)))
+            .replaceFirst(datePattern, startDateFormat.format(timePeriod.startDate))
+            .replaceFirst(datePattern, endDateFormat.format((timePeriod.endDate)))
     }
 }

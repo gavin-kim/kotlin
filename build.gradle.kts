@@ -24,6 +24,9 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation("junit:junit:4.12")
+    testImplementation(kotlin("test"))
+    testImplementation("org.mockito:mockito-core:2.23.0")
+    testImplementation("com.nhaarman:mockito-kotlin:1.6.0")
 }
 
 // In this section you declare where to find the dependencies of your project

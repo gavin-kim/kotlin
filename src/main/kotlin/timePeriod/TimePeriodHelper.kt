@@ -1,13 +1,18 @@
 
+import timePeriod.OverlapType
 import timePeriod.SimpleTimePeriod
 import timePeriod.TimePeriod
 import java.text.SimpleDateFormat
+import java.time.Period
 import java.util.*
 
 private const val DEFAULT_TIME_PERIOD_FORMAT = "@start{HH:mm:ss} - @end{HH:mm:ss}"
 private const val START_DATE_PATTERN = "@start\\{[^}]*[}]"
 private const val END_DATE_PATTERN = "@end\\{[^}]*[}]"
 private const val COMMA = ","
+private const val SYNC_YEAR = 2000
+private const val SYNC_MONTH = 0
+private const val SYNC_DATE = 10
 
 object TimePeriodHelper {
 
@@ -46,9 +51,9 @@ object TimePeriodHelper {
 
     fun doOverlap(a: TimePeriod, b: TimePeriod, contiguousIsOverlap: Boolean = true): Boolean {
         return if (contiguousIsOverlap) {
-            b.startDate <= a.endDate || a.startDate <= b.endDate
+            a.startDate <= b.endDate && b.startDate <= a.endDate
         } else {
-            b.startDate < a.endDate || a.startDate < b.endDate
+            a.startDate < b.endDate && b.startDate < a.endDate
         }
     }
 
@@ -56,7 +61,26 @@ object TimePeriodHelper {
         return targets.any { TimePeriodHelper.doOverlap(actor, it, contiguousIsOverlap) }
     }
 
-    fun doOverlap(actor: Date, targets: Collection<TimePeriod>): Boolean {
-        return targets.any { it.startDate <= actor && actor <= it.endDate }
+    fun getOverlapType(actor: TimePeriod, target: TimePeriod): OverlapType {
+        return when {
+            actor.endDate < target.startDate || target.endDate < actor.startDate -> OverlapType.NONE
+            actor.startDate == target.startDate && actor.endDate == target.endDate -> OverlapType.EXACT
+            target.startDate < actor.startDate && actor.endDate < target.endDate -> OverlapType.INNER
+            target.startDate < actor.startDate -> OverlapType.RIGHT
+            actor.endDate < target.endDate -> OverlapType.LEFT
+            else -> OverlapType.OUTER
+        }
+    }
+
+    fun getOverlapTypeOnlyForTime(actor: TimePeriod, target: TimePeriod): OverlapType {
+        actor.startDate.
+    }
+
+    fun syncDates(timePeriod: TimePeriod, shiftDates: Int) {
+        val dateToSync = S
+    }
+
+    private infix fun Date.within(timePeriod: TimePeriod): Boolean {
+        return timePeriod.startDate <= this && this <= timePeriod.endDate
     }
 }

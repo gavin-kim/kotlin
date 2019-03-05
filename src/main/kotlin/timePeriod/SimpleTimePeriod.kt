@@ -4,8 +4,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 data class SimpleTimePeriod(
-    private var start: Date,
-    private var end: Date
+    private val start: Date,
+    private val end: Date
 ): TimePeriod {
 
     constructor(startDate: String, endDate: String): this(parse(startDate), parse(endDate))
